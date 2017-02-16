@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>
+    Welcome to <%= @cocktail.name %> page
+  </h1>
+  <ul>
+    <% @cocktail.doses.each do |dose| %>
+    <li>
+      <%= dose.ingredient.name %> | <%= dose.description%>
+      <%= link_to "Delete dose", cocktail_dose_path(@cocktail, dose), method: :delete %>
+    </li>
+    <% end %>
+  </ul>
+  <%= render "doses/form" %>
+  <h4>
+    <%= link_to "Delete Cocktail", cocktail_path(@cocktail), method: :delete %>
+   </h4>
+   <h4>
+     <%= link_to "Back to Home", cocktails_path %>
+   </h4>
+</div>
