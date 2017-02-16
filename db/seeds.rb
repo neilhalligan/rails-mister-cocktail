@@ -5,8 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
-Cocktail.create(name: "Cuba Libre")
-Cocktail.create(name: "White Russian")
+
+require 'nokogiri'
+require 'open-uri'
+require 'json'
+
+# OpenURI::Buffer.send :remove_const, 'StringMax'
+# OpenURI::Buffer.const_set 'StringMax', 0
+
+url = "http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+
+doc = Nokogiri::HTML(open(url)) #.read().inspect
+JSON.parse(doc)["drinks"].each do |drink|
+  Ingredient.create(name: drink.values[0])
+end
+# doc["drinks"].values.each do |ingredient|
+#
+# end
+
