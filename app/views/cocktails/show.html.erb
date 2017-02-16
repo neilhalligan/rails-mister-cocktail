@@ -6,15 +6,15 @@
     <% @cocktail.doses.each do |dose| %>
     <li>
       <%= dose.ingredient.name %> | <%= dose.description%>
-      <%= link_to "Delete dose", cocktail_dose_path(@cocktail, dose), method: :delete %>
+      <%= link_to "Delete dose", cocktail_dose_path(@cocktail, dose), {class: "btn btn-primary", method: :delete}  %>
     </li>
     <% end %>
   </ul>
   <%= render "doses/form" %>
   <h4>
-    <%= link_to "Delete Cocktail", cocktail_path(@cocktail), method: :delete %>
+    <%= link_to "Delete Cocktail", cocktail_path(@cocktail), {method: :delete, class: "btn btn-primary"}  %>
    </h4>
    <h4>
-     <%= link_to "Back to Home", cocktails_path %>
+     <%= link_to "Back to Home", cocktails_path, class: "btn btn-primary"  %>
    </h4>
 </div>
