@@ -1,3 +1,17 @@
+
+
+
+
+    <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_path("background_beach.jpg")%>;">
+      <div class="banner-content">
+        <h1>WELCOME HOME</h1>
+        <br>
+        <p>Have a nice relaxing drink</p>
+      </div>
+    </div>
+
+
+
 <div class="container">
 <h1>Cocktail Kings Homepage</h1>
 <h2>
@@ -9,23 +23,14 @@
 
       <div class="card"
         style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                /*'app/assets/images/stock_drink.jpg'*/
                url('<%= cl_image_path cocktail_photo_path(cocktail), height: 250, width: 400, crop: :fill; %>')">
-        <div class="card-category">Popular</div>
+        <div class="card-category"><%= cocktail.name %></div>
         <div class="card-description">
           <h2>Some stuff</h2>
           <p>Very cool stuff, useful and smart</p>
         </div>
         <%= link_to "", cocktail_path(cocktail), class: "card-link" %>
-        <!-- <a class="card-link" href="#" ></a> -->
       </div>
-
-
-      <h2>
-        <%= link_to cocktail_path(cocktail) do %>
-        <%= cocktail.name%>
-        <% end %>
-      </h2>
     </div>
     <% end %>
   </div>
