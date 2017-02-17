@@ -5,7 +5,7 @@
   <ul>
     <% @cocktail.doses.each do |dose| %>
     <li>
-      <%= dose.ingredient.name %> | <%= dose.description%>
+      <%= dose.ingredient.name %> | <%= dose.description %>
       <%= link_to "Delete dose", cocktail_dose_path(@cocktail, dose), {class: "btn btn-primary", method: :delete}  %>
     </li>
     <% end %>
@@ -13,6 +13,7 @@
   <%= render "doses/form" %>
   <h4>
     <%= link_to "Delete Cocktail", cocktail_path(@cocktail), {method: :delete, class: "btn btn-primary"}  %>
+    <%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail), {class: "btn btn-primary"}  %>
    </h4>
    <h4>
      <%= link_to "Back to Home", cocktails_path, class: "btn btn-primary"  %>

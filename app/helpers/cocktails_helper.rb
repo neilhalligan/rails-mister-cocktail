@@ -1,9 +1,9 @@
 module CocktailsHelper
   def cocktail_photo_path(cocktail)
     if cocktail.photo.present?
-      cl_image_path cocktail.photo.path
+      cocktail.photo.path
     else
-      "app/assets/images/stock_drink.jpg"
+      "v1487331789/gns1pyedtf7vl8m7wbbp.jpg"
     end
   end
 end
